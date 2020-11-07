@@ -84,7 +84,7 @@ width: 100%;
 @media screen and (max-width: 600px)
 {
   body{
-   background-size: auto;
+   background-size: 120%;
 
   }
 
