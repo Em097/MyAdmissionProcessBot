@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <div class="body-container">
+      <div class="logo-container">
+        <img id="logo" src="image/logo.png" alt="Momsbelief">
+      </div>
+      <h1>ChatBot</h1>
+      <div class="container">
+        <button onclick=onChat() class="open-button">Click to chat</button>
+        <div class="chatbot">
+          <button onclick=closeChat() class="close-button">Chat</button>
+          <div id="webchat" role="main"></div>
+        
+  
+  
+  
+  
+      </div>
+  
+      </div>
+
+  </div>
+
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+  <script>
+      // getting cookie 
+
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+var user = getCookie("username");
+
+
+    function onChat(){
+  document.querySelector(".chatbot").style.display = "block";
+
+  };
+
+  function closeChat(){
+    document.querySelector(".chatbot").style.display = "none";
+
+  };
+
+  const styleOptions = {
+            botAvatarBackgroundColor: "black",
+            botAvatarImage: './image/logo.png',
+            botAvatarInitials: "",
+            userAvatarInitials: 'You',
+            backgroundColor: "#04061A",
+            fontSizeSmall: '50%',
+            userAvatarBackgroundColor: "black",
+            avatarBorderRadius: '50%',
+            avatarSize: 30,
+            typingAnimationDuration: 5000,
+            emojiSet: true
+
+            
+         };
+
+         window.WebChat.renderWebChat(
+            {
+               directLine: window.WebChat.createDirectLine({
+                  secret: 'FdT320fJoBs.ze3UU4395jRwXk3jht7vbzltnOWqWkG-kxrr0NJYfkE',
+               }),
+               username: user,
+               styleOptions
+            },
+            document.getElementById('webchat')
+         );
+
+</script>
+
+  </body>
+</html>
