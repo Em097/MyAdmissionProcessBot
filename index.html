@@ -66,16 +66,24 @@ var user = getCookie("username");
             botAvatarImage: './image/logo.png',
             botAvatarInitials: "",
             userAvatarInitials: 'You',
-            backgroundColor: "#04061A",
+            backgroundColor: "#transparent",
             fontSizeSmall: '50%',
             userAvatarBackgroundColor: "black",
             avatarBorderRadius: '50%',
             avatarSize: 30,
             typingAnimationDuration: 5000,
-            emojiSet: true
+            emojiSet: true,
+            hideUploadButton: true
 
             
          };
+
+         const webPonyfill =  window.WebChat.createCognitiveServicesSpeechServicesPonyfillFactory({
+            credentials: {
+              region: 'eastus',
+              subscriptionKey: 'a4b03685c084446a85dafc0a81d79da8'
+            }
+          })
 
          window.WebChat.renderWebChat(
             {
@@ -83,6 +91,7 @@ var user = getCookie("username");
                   secret: 'FdT320fJoBs.ze3UU4395jRwXk3jht7vbzltnOWqWkG-kxrr0NJYfkE',
                }),
                username: user,
+               webSpeechPonyfillFactory: webPonyfill,
                styleOptions
             },
             document.getElementById('webchat')
