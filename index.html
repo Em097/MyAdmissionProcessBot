@@ -10,9 +10,10 @@
 
     <div class="body-container">
       <div class="logo-container">
-        <img id="logo" src="image/logo.png" alt="Momsbelief">
+        <img class="logo" src="image/logo.png" alt="Momsbelief">
+        <img class="logo" src="image/12.png" alt="Momsbelief">
       </div>
-      <h1>ChatBot</h1>
+      <h1>Jarvis bot <small>v.1.1</small></h1>
       <div class="container">
         <button onclick=onChat() class="open-button">Click to chat</button>
         <div class="chatbot">
@@ -34,23 +35,6 @@
       // getting cookie 
 
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-var user = getCookie("username");
-
-
     function onChat(){
   document.querySelector(".chatbot").style.display = "block";
 
@@ -63,10 +47,10 @@ var user = getCookie("username");
 
   const styleOptions = {
             botAvatarBackgroundColor: "black",
-            botAvatarImage: './image/logo.png',
+            botAvatarImage: './image/12.png',
             botAvatarInitials: "",
             userAvatarInitials: 'You',
-            backgroundColor: "#transparent",
+            backgroundColor: "rgba(0, 0, 0, 0.6)",
             fontSizeSmall: '50%',
             userAvatarBackgroundColor: "black",
             avatarBorderRadius: '50%',
@@ -90,7 +74,6 @@ var user = getCookie("username");
                directLine: window.WebChat.createDirectLine({
                   secret: 'FdT320fJoBs.ze3UU4395jRwXk3jht7vbzltnOWqWkG-kxrr0NJYfkE',
                }),
-               username: user,
                webSpeechPonyfillFactory: webPonyfill,
                styleOptions
             },
